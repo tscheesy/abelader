@@ -1,13 +1,46 @@
 
-#Youtube Downloader
+#ABELADER
 
+> Social Media für Möchtegern-Influencer
+
+###Warum "Abelader"?
+
+- Gen Z-Pain Social Media
+- Keine vernünftigen Alternativen (Vertrauenswürdigkeit & Funktionalität)
+- Zeig mit abelader wer du bist!
+
+###Benutzung
+
+- URL Einfügen
+- Download als mp4 oder mp3 wählen
+- Keine guten alternativen
+- MOBILE-WEBAPP
+
+
+###Funktionen
+
+*Primär (User Gain)*
+- Lädt Video auf Server
+- Button für Download durch User
+- Timer mit Löschung des geladenen Videos
+
+*Sekundär (Owner Gain)*
+- speichert alle eingegebenen URLs
+- Zusätzliche Informationen zum User werden mit Download gesammelt
+- Kategorisiert Videos (bzw Links) in Datenbank
+- Zeigt Trends auf
+
+
+###Visual
+
+Nicht als Funktion definierbar aber dennoch existenziell wichtig für die Nutzung der App durch richtige Nutzer ist die Gestaltung der User Experience und damit eine ansprechende, simple und moderne Gestaltung der HTML-Elemente.
 
 ###Vorgaben
 
 Entwicklung einer Webapplikation mit Flask
 
 
-###Bewertungschema
+####Bewertungschema
 
 **5% Code-Verwaltung**
 <br>Regelmässige Aktualisierungen des Projektes auf Github die eine kontinuierliche und stetige Arbeit am Projekt während des Semesters zeigt.
@@ -24,3 +57,14 @@ Entwicklung einer Webapplikation mit Flask
 
 >Achtung: Andere Technologien als die im Unterricht verwendeten nur nach Absprache apätistens 1 Monat vor Abgabe.
 
+###Ausbau (Ausblick)
+
+- Erklärung Rechtslage bei Verwendung von Youtube-Downloads
+
+- Seo im code
+
+- Benutzer-Profile
+
+- Werbeplatz 1x gross zum Download freischalten, nur Qualitätskampagnen, Partnership Agentur
+
+- API-Anbindung TikTok, Instagram
