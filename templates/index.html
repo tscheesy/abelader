@@ -22,13 +22,19 @@
 
     <div class="container-fluid" id="body">
         <div class="row">
-            <div><p>Hello World!</p></div>
+            <div><h1>Lad es youtube-video zum Reposte als mp4 uf dis Handy abe!</h1></div>
 
             <form method="POST">
                 <div class="form-group">
                     <label>Füeg da din Link ine:</label>
                     <input type="text" class="form-control" name="youtube_link" aria-describedby="example_video" placeholder="z.B. https://www.youtube.com/watch?v=aosWoTbEUmw">
-                    <small id="download_info" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    {% if failed_link == True: %}
+                        <p style="red">Din Link: {{ no_link }} isch leider keis gültigs Youtube-Objekt, versuches miteme andere Link!</p>
+                    <!-- {% else: %}
+                        <p>Du wirst zur Downloadseite für das Youtube-Video {{ no_link }} weitergeleitet...</p> -->
+                    {% endif %}
+
+                    <!-- <small id="download_info" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                     <br><button type="submit" class="btn btn-primary">Submit</button>
             </form>
 

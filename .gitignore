@@ -109,3 +109,5 @@ venv.bak/
 assets/design
 assets/src
 assets/idea.txt
+assets/fonts
+/assets/logo/logo.psd
