@@ -12,7 +12,6 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
 @app.route("/<url>")
-
 def urlreceiver():
     if request.method == "POST":
         url = request.form["youtube_link"]
@@ -23,7 +22,12 @@ def urlreceiver():
             failed_link = True
             return render_template("index.html", no_link=url, failed_link=failed_link)
 
-        object_stats = youtube_object.title + " " + youtube_object.metadata() + " " + youtube_object.streams()
+        object_stats = {
+            "titel": youtube_object.title,
+            "metadaten": youtube_object.metadata,
+            "streams": youtube_object.streams,
+        }
+
         return render_template('download.html', youtube_object=youtube_object, stats=object_stats)
 
     return render_template("index.html")

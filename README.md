@@ -1,23 +1,25 @@
 
-#ABELADER
+    ![abelader, the youtube video mp4 and mp3 downloader](/static/logo.png/)
 
 > Social Media für Möchtegern-Influencer
 
-###Warum "Abelader"?
+### Warum "Abelader"?
 
-- Gen Z-Pain Social Media
-- Keine vernünftigen Alternativen (Vertrauenswürdigkeit & Funktionalität)
-- Zeig mit abelader wer du bist!
+- Heutige Content Creator in Form von Privatpersonen, Lifestyle-Accounts oder auch Unternehmen 
+brauchen Content, um damit ihre Identität auszudrücken. Viel Content. Und Youtube ist das Google 
+der Videos (zufall???).
+- Es gibt keine vernünftigen und webbasierten Alternativen (Vertrauenswürdigkeit & Funktionalität),
+Die ich über Google finden kann
+- Die Rechtslage für alle Parteien gemäss aktueller Bestimmungen ist noch abzuschätzen.
 
-###Benutzung
+### Benutzung
 
-- URL Einfügen
-- Download als mp4 oder mp3 wählen
-- Keine guten alternativen
-- MOBILE-WEBAPP
+- URL Einfügen - Submit
+- Fragen beantworten
+- Download als mp4 oder mp3 wählen, gewünschte Auflösung wählen
 
 
-###Funktionen
+### Funktionen
 
 *Primär (User Gain)*
 - Lädt Video auf Server
@@ -31,16 +33,18 @@
 - Zeigt Trends auf
 
 
-###Visual
+### Visual
 
-Nicht als Funktion definierbar aber dennoch existenziell wichtig für die Nutzung der App durch richtige Nutzer ist die Gestaltung der User Experience und damit eine ansprechende, simple und moderne Gestaltung der HTML-Elemente.
+Nicht als Funktion definierbar aber dennoch existenziell wichtig für die Nutzung 
+der App durch richtige Nutzer ist die Gestaltung der User Experience und damit 
+eine ansprechende, simple und moderne Gestaltung der Bootstrap-Elemente.
 
-###Vorgaben
+### Vorgaben
 
 Entwicklung einer Webapplikation mit Flask
 
 
-####Bewertungschema
+#### Bewertungschema
 
 **5% Code-Verwaltung**
 <br>Regelmässige Aktualisierungen des Projektes auf Github die eine kontinuierliche und stetige Arbeit am Projekt während des Semesters zeigt.
@@ -55,9 +59,9 @@ Entwicklung einer Webapplikation mit Flask
 <br>Code und Projekt
 
 
->Achtung: Andere Technologien als die im Unterricht verwendeten nur nach Absprache apätistens 1 Monat vor Abgabe.
+>Achtung: Andere Technologien als die im Unterricht verwendeten nur nach Absprache spätistens 1 Monat vor Abgabe.
 
-###Ausbau (Ausblick)
+### Ausbau (Ausblick)
 
 - Erklärung Rechtslage bei Verwendung von Youtube-Downloads
 
@@ -65,6 +69,20 @@ Entwicklung einer Webapplikation mit Flask
 
 - Benutzer-Profile
 
-- Werbeplatz 1x gross zum Download freischalten, nur Qualitätskampagnen, Partnership Agentur
+- Werbeplatz 1x gross Video zum Download freischalten, nur Qualitätskampagnen, Partnership Agentur
 
 - API-Anbindung TikTok, Instagram
+
+
+##### Sources
+- fabod's pro2_demos on GitHub: https://github.com/fabod/pro2_demos
+- YouTube video downloader | Python project | Pytube | Easy Tutorial: https://www.youtube.com/watch?v=7BXJIjfJCsA
+- How to Make Complete Responsive Website Using Bootstrap/HTML/CSS: https://www.youtube.com/watch?v=zhllkjYYUVE
+- Create your own YouTube video downloader with Flask!: https://www.youtube.com/watch?v=KnHCe1jW9ao
+
+###### Docs
+- www.stackoverflow.com
+- www.getbootstrap.com
+- www.w3schools.com
+- www.markdownguide.org
+- www.pytube.io

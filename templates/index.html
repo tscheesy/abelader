@@ -4,49 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ url_for("static", filename="style.css") }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>abelader</title>
 </head>
 
 <body>
-    <div class="container-fluid" id="header">
-        <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand" href="#"><img src="img/logo.png" width="50" height="50" alt="">
-                abelader
-            </a>
-        </nav>
-    </div>
+
+
+<!--------- TEMPLATE HEADER ----------------->
+
+    <header>
+        <div class="container-fluid" id="header">
+            <nav class="navbar navbar-light bg-light">
+                <a class="navbar-brand" href="#"><img src="/static/logo.png" width="200px" height="100px" alt=""></a>
+            </nav>
+        </div>
+    </header>
+
 
 
 <!--------- CONTENT START ----------->
 
-    <div class="container-fluid" id="body">
-        <div class="row">
-            <div><h1>Lad es youtube-video zum Reposte als mp4 uf dis Handy abe!</h1></div>
+    <main>
+        <div class="container text-center">
+            <div class="row col-sm-8">
+                <div class="alert alert-light col-md-8 col-sm-6" role="alert">
+                    <div class="col-md-6 col-sm-10">
+                        <img src="/static/alert_first.jpg">
+                    </div>
 
-            <form method="POST">
-                <div class="form-group">
-                    <label>Füeg da din Link ine:</label>
-                    <input type="text" class="form-control" name="youtube_link" aria-describedby="example_video" placeholder="z.B. https://www.youtube.com/watch?v=aosWoTbEUmw">
-                    {% if failed_link == True: %}
-                        <p style="red">Din Link: {{ no_link }} isch leider keis gültigs Youtube-Objekt, versuches miteme andere Link!</p>
-                    <!-- {% else: %}
-                        <p>Du wirst zur Downloadseite für das Youtube-Video {{ no_link }} weitergeleitet...</p> -->
-                    {% endif %}
+                    <!--   Rechtslage Button ------------------>
 
-                    <!-- <small id="download_info" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-                    <br><button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+                    <button class="btn btn-dark" data-toggle="modal" href="#" type="button" aria-haspopup="true" aria-expanded="false" data-target="#rechstlage_modal">Rechtslage</button>
+                </div>
+
+
+                <!-- Rechtslage Modal ---------------------->
+
+                    <div class="modal fade" id="rechstlage_modal" tabindex="-1" role="dialog" aria-labelledby="rechtslage_modal" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="modal_title">Die Verantwortung liegt bei dir!</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <p>
+                                Du speicherst lokal auf deinem Gerät ein Video von jemand anderes, eine Schöpfung im Sinne des Urheberrechts. Die Rechtslage bei
+                                Weiterverbreitung ist dem Ersteller unbekannt, weshalb er für keine rechtlichen Konsequenzen haftet. Informiere dich <a href="#" class="alert-link">hier</a>
+                                über die aktuellen Datenschutzbestimmungen deines Standorts.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                <form method="POST">
+                    <div class="form-group">
+                        <label>Füeg da din Link ine:</label>
+                        <input type="text" class="form-control" name="youtube_link" aria-describedby="example_video" placeholder="z.B. https://www.youtube.com/watch?v=aosWoTbEUmw">
+                        {% if failed_link %}
+                            <p style="red">Din Link: {{ no_link }} isch leider keis gültigs Youtube-Objekt, versuches miteme andere Link!</p>
+                        {% endif %}
+
+                        <!-- <small id="download_info" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                        <br><button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
 
         </div>
 
-
-<!--------- CONTENT END ----------->
-
-
-
         <div class="row"></div>
-    </div>
+        </div>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
