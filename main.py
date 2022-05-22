@@ -1,55 +1,69 @@
-from flask import Flask
-from flask import render_template
-from flask import url_for
-from flask import request
+from flask import Flask, render_template, url_for, request
 from pytube import YouTube
 
-import download_file
-
+import video_data
 
 app = Flask(__name__)
 
 
 @app.route("/", methods=["GET", "POST"])
-@app.route("/<url>")
-def urlreceiver():
+def home():
     if request.method == "POST":
-        url = request.form["youtube_link"]
+        form_input = request.form["youtube_link"]
         try:
-            youtube_object = YouTube(url)
-            youtube_object.check_availability()
+            video = YouTube(form_input)
+            video.check_availability()
+            # pytube prüft ob für den Link ein gültiges youtube-Objekt besteht #
         except:
-            failed_link = True
-            return render_template("index.html", no_link=url, failed_link=failed_link)
+            return render_template("index.html", form_input=form_input)
 
-        object_stats = {
-            "titel": youtube_object.title,
-            "metadaten": youtube_object.metadata,
-            "streams": youtube_object.streams,
-        }
-
-        return render_template('download.html', youtube_object=youtube_object, stats=object_stats)
-
+        video_info = video_data.data_from_input(form_input, video)
+        session_id = 1285918
+        return render_template("questions.html", session_id=session_id, video_info=video_info)
     return render_template("index.html")
 
 
-@app.route("/download")
-@app.route("/download/<id>", methods=["GET", "POST"])
+@app.route("/<session_id>", methods=["GET", "POST"])
+def requestions(session_id):
+    questions = True
+    return render_template("index.html", questions=questions, session_id=session_id)
 
 
-def start_download(video_id):
-    video_id = 666
-    download_file.abelade(video_id)
+@app.route("/download", methods=["POST"])
+def urlreceiver():
+    if request.method == "POST":
+        link = request.form["youtube_link"]
+        video = YouTube(link)
+
+        video_stats = {
+            "titel": video.title,
+            "beschreibung": video.description,
+            "dauer": str(video.length),
+            "datum": video.publish_date,
+            "thumbnail": video.thumbnail_url,
+            "keywords": video.keywords,
+            "views": video.views,
+            "bewertung": video.rating,
+            "author": video.author,
+            "poster_channel_id": video.channel_id,
+            "channel_url": video.channel_url,
+            "metadaten": video.metadata,
+            "age_gate": video.bypass_age_gate(),
+
+
+        }
+
+        return render_template("download.html", video_stats=video_stats)
+
+
+@app.route("/stats")
+def data():
+    return render_template("stats.html")
 
 
 @app.route("/about")
 def about():
     return render_template("about.html")
-
-
-@app.route("/data")
-def data():
-    return render_template("data.html")
 
 
 if __name__ == "__main__":

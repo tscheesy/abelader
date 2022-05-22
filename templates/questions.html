@@ -1,0 +1,26 @@
+<!-- Loading Base HTML Template with Metadata, Bootstrap & Navigation-->
+{% extends "base.html" %}}
+
+
+<!--------- CONTENT ----------->
+{% block content %}
+        <main>
+            <div class="container text-center">
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <p>Titel: {{ video_info[0] }}</p>
+                        <p>Deine Session ID: {{ session_id }}</p>
+                        <p>Vid_ID: {{ video_info[1] }}</p>
+                    </div>
+
+
+                    <div class="col-md-4">
+                        <p>Beantworte folgende Fragen um fortzufahren:</p>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+{% endblock %}
+

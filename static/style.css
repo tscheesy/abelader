@@ -2,43 +2,41 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 
-.btn {
-    font-size: 1em;
-    color: red;
-    fonts: "Inconsolata";
-    font-weight: 500;
+html {
+    height: 100%
+    padding: 0;
+    margin: 0;
+    font-family: "Roboto";
+    font-weight: 300;
 }
 
-html {
- height: 100%
+h1, h2, h3 {
+    font-size: 2em;
+    font-family: "Inconsolata";
+    font-weight: 900;
 }
 
 main {
     height: 100%;
-    background-image: url(/static/bg.jpeg);
+    /* background-image: url(/static/bg.jpeg); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     }
 
 
-p, label {
+p, label,  {
     color: #fff;
     font-size: 1.2em;
-    fonts: "Roboto";
-    font-weight: 300;
 }
 
 
 
 
 @media (min-width: 576px) {
- .navbar-brand img {
-    image-size: 30%;
- }
+
 
 }
-
 
 
 // Medium devices (tablets, 768px and up)
@@ -48,8 +46,6 @@ p, label {
 }
 
 
-
-
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
 
@@ -57,13 +53,8 @@ p, label {
 }
 
 
-
-
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
 
 
 }
-
-
-

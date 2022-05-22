@@ -18,6 +18,8 @@ Die ich über Google finden kann
 - Fragen beantworten
 - Download als mp4 oder mp3 wählen, gewünschte Auflösung wählen
 
+### Pytube
+
 
 ### Funktionen
 
@@ -31,6 +33,8 @@ Die ich über Google finden kann
 - Zusätzliche Informationen zum User werden mit Download gesammelt
 - Kategorisiert Videos (bzw Links) in Datenbank
 - Zeigt Trends auf
+
+### Architektur
 
 
 ### Visual
@@ -79,6 +83,7 @@ Entwicklung einer Webapplikation mit Flask
 - YouTube video downloader | Python project | Pytube | Easy Tutorial: https://www.youtube.com/watch?v=7BXJIjfJCsA
 - How to Make Complete Responsive Website Using Bootstrap/HTML/CSS: https://www.youtube.com/watch?v=zhllkjYYUVE
 - Create your own YouTube video downloader with Flask!: https://www.youtube.com/watch?v=KnHCe1jW9ao
+- Usage of Templates in Flask Applications: https://www.digitalocean.com/community/tutorials/how-to-use-templates-in-a-flask-application
 
 ###### Docs
 - www.stackoverflow.com
