@@ -1,38 +1,33 @@
-<!-- Loading Base HTML Template with Metadata, Bootstrap & Navigation-->
+<!-- Loading Base HTML Template with Metadata, Bootstrap & jquery Linking & Navigation-->
 {% extends "base.html" %}}
 
 
-<!--------- CONTENT ----------->
+<!--------- CONTENT Template for Homepage ----------->
 {% block content %}
-        <main>
-            <div class="container text-center">
-                <div class="row"></div>
 
-                <div class="row">
+        <div class="container text-center">
+            <div class="row">
+            <!-- EINGABEFORMULAR YOUTUBE-LINK, parent-div immer mittig -->
+                <div class="col-sm">
+                    <form method="POST">
+                        <h6 class="col-md-12">Füeg da din Link ine:</h6>
+                        <input class="col-md-6 col-sm-12 form-control-lg" type="text" name="youtube_link" aria-describedby="example_video" placeholder="z.B. https://www.youtube.com/watch?v=aosWoTbEUmw">
 
-                <!-- EINGABEFORMULAR YOUTUBE-LINK -->
+                        {% if form_input == "" %}  <!-- Fehlermeldung falls gar nichts im Formular eingegeben wurde -->
+                            <div class="alert alert-warning col-md-4 col-sm-12 mx-auto">
+                                You did not Enter anything.. Nice Try!
+                            </div>
 
+                        {% elif form_input %} <!-- Fehlermeldung falls eine Zeichenfolge eingegeben wurde, die nicht einem gültigen Youtube-Link entspricht -->
+                            <div class="alert alert-warning col-md-4 col-sm-12 mx-auto">
+                                Your Input: "{{ form_input }}" is not ringing a bell here.. <br>Try something else!
+                            </div>
+                        {% endif %}
 
-                    <div class="col-md-4 form-group">
-                        <form method="POST">
-                            <label>Füeg da din Link ine:</label>
-                            <input type="text" class="form-control" name="youtube_link" aria-describedby="example_video" placeholder="z.B. https://www.youtube.com/watch?v=aosWoTbEUmw">
-
-                            {% if form_input == "" %}
-                                <p>Du häsch üüüberhaupt nüt igäh seit mir mis Programm...
-                                    <br>Ohni Link keis Video &#128129</p>
-                            <!-- Fehlermeldung falls gar nichts im Formular eingegeben wurde -->
-
-                            {% elif form_input %}
-                                <p>Dini Igab: "{{ form_input }}" isch keis gültigs Youtube-Objekt, versuchechs miteme andere Link?</p>
-                            {% endif %}
-                            <!-- Fehlermeldung falls eine Zeichenfolge eingegeben wurde, die nicht einem gültigen Youtube-Link entspricht -->
-
-                            <br><button type="submit" class="btn btn-dark">Submit</button>
-                        </form>
-                    </div>
+                        <button type="submit" class="btn btn-dark px-5 py-2">Submit</button>
+                    </form>
                 </div>
             </div>
-        </main>
+        </div>
 {% endblock %}
 

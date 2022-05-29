@@ -3,33 +3,15 @@
 
 
 html {
-    height: 100%
-    padding: 0;
-    margin: 0;
     font-family: "Roboto";
     font-weight: 300;
 }
 
-h1, h2, h3 {
+h1 {
     font-size: 2em;
     font-family: "Inconsolata";
     font-weight: 900;
 }
-
-main {
-    height: 100%;
-    /* background-image: url(/static/bg.jpeg); */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    }
-
-
-p, label,  {
-    color: #fff;
-    font-size: 1.2em;
-}
-
 
 
 
