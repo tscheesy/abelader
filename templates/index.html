@@ -11,18 +11,19 @@
                 <div class="col-sm">
                     <form method="POST">
                         <h6 class="col-md-12">Füeg da din Link ine:</h6>
-                        <input class="col-md-6 col-sm-12 form-control-lg" type="text" name="youtube_link" aria-describedby="example_video" placeholder="z.B. https://www.youtube.com/watch?v=aosWoTbEUmw">
-
-                        {% if form_input == "" %}  <!-- Fehlermeldung falls gar nichts im Formular eingegeben wurde -->
+                        <div class="col-md-12">
+                            <input class="col-md-6 col-sm-12 form-control-lg" type="text" name="youtube_link" aria-describedby="example_video" placeholder="z.B. https://www.youtube.com/watch?v=aosWoTbEUmw">
+                        </div>
+                            {% if form_input == "" %}  <!-- Fehlermeldung falls gar nichts im Formular eingegeben wurde -->
                             <div class="alert alert-warning col-md-4 col-sm-12 mx-auto">
                                 You did not Enter anything.. Nice Try!
                             </div>
 
-                        {% elif form_input %} <!-- Fehlermeldung falls eine Zeichenfolge eingegeben wurde, die nicht einem gültigen Youtube-Link entspricht -->
+                            {% elif form_input %} <!-- Fehlermeldung falls eine Zeichenfolge eingegeben wurde, die nicht einem gültigen Youtube-Link entspricht -->
                             <div class="alert alert-warning col-md-4 col-sm-12 mx-auto">
                                 Your Input: "{{ form_input }}" is not ringing a bell here.. <br>Try something else!
                             </div>
-                        {% endif %}
+                            {% endif %}
 
                         <button type="submit" class="btn btn-dark px-5 py-2">Submit</button>
                     </form>
