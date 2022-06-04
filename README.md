@@ -3,16 +3,16 @@
 
 > Social Media für Möchtegern-Influencer
 
-### Warum "Abelader"?
+## Warum "Abelader"?
 
 - Heutige Content Creator in Form von Privatpersonen, Lifestyle-Accounts oder auch Unternehmen 
 brauchen Content, um damit ihre Identität auszudrücken. Viel Content. Und Youtube ist das Google 
 der Videos (zufall???).
-- Es gibt keine vernünftigen und webbasierten Alternativen (Vertrauenswürdigkeit & Funktionalität),
+- Es gibt keine vernünftigen webbasierten Alternativen (Vertrauenswürdigkeit & Funktionalität),
 Die ich über Google finden kann
-- Die Rechtslage für alle Parteien gemäss aktueller Bestimmungen ist noch abzuschätzen.
+- Die Rechtslage bei Wiederverwendung von Content gemäss aktueller Bestimmungen in der Schweiz & EU ist noch abzuschätzen.
 
-### Benutzung
+## Benutzung
 
 - URL Einfügen - Submit
 - Fragen beantworten
@@ -21,7 +21,7 @@ Die ich über Google finden kann
 ### Pytube
 
 
-### Funktionen
+## Funktionen
 
 *Primär (User Gain)*
 - Lädt Video auf Server
@@ -30,25 +30,51 @@ Die ich über Google finden kann
 
 *Sekundär (Owner Gain)*
 - speichert alle eingegebenen URLs
-- Zusätzliche Informationen zum User werden mit Download gesammelt
-- Kategorisiert Videos (bzw Links) in Datenbank
-- Zeigt Trends auf
+- Zusätzliche Informationen zum Verwendungszweck und Benutzer werden mit Download gesammelt
+- Kategorisiert Videos in Datenbank
+- Zeigt Content-Trends auf
 
-### Architektur
+## Architektur
+
+####Home & Handling false Input
+- Input auf Funktion (Youtube-Link) prüfen ohne nächste url zu laden (Fragen!)
+- Lösung: neues Template rendern
+
+####Questioning
+
+####Datenbank
+
+####Rechnung & Filter
+
+####Datenausgabe
 
 
 ### Visual
 
 Nicht als Funktion definierbar aber dennoch existenziell wichtig für die Nutzung 
-der App durch richtige Nutzer ist die Gestaltung der User Experience und damit 
+der App durch reale Nutzer ist die Gestaltung der User Experience und damit 
 eine ansprechende, simple und moderne Gestaltung der Bootstrap-Elemente.
+
+
+>##### Sources
+>- fabod's pro2_demos on GitHub: https://github.com/fabod/pro2_demos
+>- YouTube video downloader | Python project | Pytube | Easy Tutorial: https://www.youtube.com/watch?v=7BXJIjfJCsA
+>- How to Make Complete Responsive Website Using Bootstrap/HTML/CSS: https://www.youtube.com/watch?v=zhllkjYYUVE
+>- Create your own YouTube video downloader with Flask!: https://www.youtube.com/watch?v=KnHCe1jW9ao
+>- Usage of Templates in Flask Applications: https://www.digitalocean.com/community/tutorials/how-to-use-templates-in-a-flask-application
+
+>###### consulted Docs (among others)
+>- www.stackoverflow.com
+>- www.getbootstrap.com
+>- www.w3schools.com
+>- www.markdownguide.org
+>- www.pytube.io
+ 
 
 ### Vorgaben
 
 Entwicklung einer Webapplikation mit Flask
-
-
-#### Bewertungschema
+#### Bewertungschema fabod:
 
 **5% Code-Verwaltung**
 <br>Regelmässige Aktualisierungen des Projektes auf Github die eine kontinuierliche und stetige Arbeit am Projekt während des Semesters zeigt.
@@ -64,30 +90,3 @@ Entwicklung einer Webapplikation mit Flask
 
 
 >Achtung: Andere Technologien als die im Unterricht verwendeten nur nach Absprache spätistens 1 Monat vor Abgabe.
-
-### Ausbau (Ausblick)
-
-- Erklärung Rechtslage bei Verwendung von Youtube-Downloads
-
-- Seo im code
-
-- Benutzer-Profile
-
-- Werbeplatz 1x gross Video zum Download freischalten, nur Qualitätskampagnen, Partnership Agentur
-
-- API-Anbindung TikTok, Instagram
-
-
-##### Sources
-- fabod's pro2_demos on GitHub: https://github.com/fabod/pro2_demos
-- YouTube video downloader | Python project | Pytube | Easy Tutorial: https://www.youtube.com/watch?v=7BXJIjfJCsA
-- How to Make Complete Responsive Website Using Bootstrap/HTML/CSS: https://www.youtube.com/watch?v=zhllkjYYUVE
-- Create your own YouTube video downloader with Flask!: https://www.youtube.com/watch?v=KnHCe1jW9ao
-- Usage of Templates in Flask Applications: https://www.digitalocean.com/community/tutorials/how-to-use-templates-in-a-flask-application
-
-###### Docs
-- www.stackoverflow.com
-- www.getbootstrap.com
-- www.w3schools.com
-- www.markdownguide.org
-- www.pytube.io

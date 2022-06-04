@@ -13,13 +13,13 @@ def home():
         try:
             video = YouTube(form_input)
             video.check_availability()
-            # pytube prüft ob für den Link ein gültiges youtube-Objekt besteht #
+            # pytube prüft mittels "except", ob für den Link ein gültiges youtube-Objekt besteht
         except:
+            # Wird für die Eingabe kein gültiges youtube-objekt gefunden, wird die eingabe ans index.html zurückgegeben
             return render_template("index.html", form_input=form_input)
 
         video_info = video_data.data_from_input(form_input, video)
-        session_id = 1285918
-        return render_template("questions.html", session_id=session_id, video_info=video_info)
+        return render_template("questions.html", video_info=video_info)
     return render_template("index.html")
 
 

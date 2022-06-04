@@ -1,5 +1,5 @@
 <!-- Loading Base HTML Template with Metadata, Bootstrap & Navigation-->
-{% extends "base.html" %}}
+{% extends "base.html" %}
 
 
 <!--------- CONTENT ----------->
@@ -8,17 +8,42 @@
             <div class="container text-center">
                 <div class="row">
 
-                    <div class="col-md-4">
-                        <p>Titel: {{ video_info[0] }}</p>
-                        <p>Deine Session ID: {{ session_id }}</p>
-                        <p>Vid_ID: {{ video_info[1] }}</p>
+                    <div class="col-md-4 offset-md-2">
+                        <h6>Dein Video:</h6>
+                        <p>{{ video_info["title"] }}</p>
+                        <img href="{{ video_info['thumbnail'] }}">
+                        <p>ID <a href="{{ video_info['url'] }}" target="_blank">{{ video_info['video_id'] }}</a></p>
                     </div>
 
 
-                    <div class="col-md-4">
+                    <div class="col-md-4 text-start">
                         <p>Beantworte folgende Fragen um fortzufahren:</p>
-                    </div>
+                        <form>
+                            <h6>Wofür möchtest du dieses Video verwenden?</h6>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="vote_need_repost" id="vote_need_repost" value="option1" checked>
+                                <label class="form-check-label" for="exampleRadios1">
+                                    Zum direkt wieder uf Instagram poste natürlich! &#128588;
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="vote_need_repost" id="vote_need_fun" value="option2">
+                                <label class="form-check-label" for="exampleRadios1">
+                                    Muses eifach kollege privat schicke &#128514;&#128514;
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="vote_need_creator" id="vote_need_creator" value="option3">
+                                <label class="form-check-label" for="exampleRadios1">
+                                    Ich mach öppis ganz neus druus! &#129327;
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-dark mt-3">Submit</button>
+                        </form>
 
+                        <div class="col-md-2"></div>
+
+                    </div>
                 </div>
             </div>
         </main>

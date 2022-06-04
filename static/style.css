@@ -7,12 +7,16 @@ html {
     font-weight: 300;
 }
 
+
 h1 {
     font-size: 2em;
     font-family: "Inconsolata";
     font-weight: 900;
 }
 
+main {
+    padding-top: 2%;
+}
 
 
 @media (min-width: 576px) {
