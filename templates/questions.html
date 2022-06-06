@@ -9,35 +9,44 @@
                 <div class="row">
 
                     <div class="col-md-4 offset-md-2">
-                        <h6>Dein Video:</h6>
-                        <p>{{ video_info["title"] }}</p>
-                        <img href="{{ video_info['thumbnail'] }}">
-                        <p>ID <a href="{{ video_info['url'] }}" target="_blank">{{ video_info['video_id'] }}</a></p>
+                        <h3>Dein Video:</h3>
+                        <img src="{{ video_info['thumbnail'] }}" height="150px">
+                        <h6>{{ video_info["title"] }}</h6>
+                        <p>Youtube-Objekt: {{ video_info["yt_object"] }}</p>
+                        <p>ID <a href="{{ video_info['url'] }}" target="_blank">{{ video_info['id'] }}</a></p>
+                        {% for el in video_info: %}
+                            <li>{{ el }} : {{ video_info.get(el) }}</li>
+                        {% endfor %}
                     </div>
 
 
                     <div class="col-md-4 text-start">
                         <p>Beantworte folgende Fragen um fortzufahren:</p>
                         <form>
-                            <h6>Wofür möchtest du dieses Video verwenden?</h6>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="vote_need_repost" id="vote_need_repost" value="option1" checked>
-                                <label class="form-check-label" for="exampleRadios1">
-                                    Zum direkt wieder uf Instagram poste natürlich! &#128588;
-                                </label>
+
+                        <!-- Form Groups Radio Buttons für Fragen -->
+                            <div class="form-group row">
+                                <h6>Wofür möchtest du dieses Video verwenden?</h6>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="vote_need" id="vote_need_repost" value="repost" checked>
+                                    <label class="form-check-label" for="vote_need_repost">
+                                        Zum direkt wieder uf Instagram poste natürlich! &#128588;
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="vote_need" id="vote_need_fun" value="fun">
+                                    <label class="form-check-label" for="vote_need_fun">
+                                        Muses eifach kollege privat schicke &#128514;&#128514;
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="vote_need" id="vote_need_creator" value="creator">
+                                    <label class="form-check-label" for="vote_need_creator">
+                                        Ich mach öppis ganz neus druus! &#129327;
+                                    </label>
+                                </div>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="vote_need_repost" id="vote_need_fun" value="option2">
-                                <label class="form-check-label" for="exampleRadios1">
-                                    Muses eifach kollege privat schicke &#128514;&#128514;
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="vote_need_creator" id="vote_need_creator" value="option3">
-                                <label class="form-check-label" for="exampleRadios1">
-                                    Ich mach öppis ganz neus druus! &#129327;
-                                </label>
-                            </div>
+
                             <button type="submit" class="btn btn-dark mt-3">Submit</button>
                         </form>
 
