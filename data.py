@@ -18,7 +18,7 @@ def new_dict(file, top_key):
 
 def save(file, top_key, second_key, value):
     try:
-        with open(file) as open_file:
+        with open(file, "r") as open_file:
             content = json.load(open_file)
     except FileNotFoundError:
         content = {}
@@ -27,12 +27,12 @@ def save(file, top_key, second_key, value):
     content[top_key][str(second_key)] = value
 
     with open(file, "w") as open_file:
-        json.dump(content, open_file)
+        json.dump(content, open_file, indent=10)
 
 
 def load(file, key):
     try:
-        with open(file) as open_file:
+        with open(file, "r") as open_file:
             content = json.load(open_file)
             value = content.get(key)
     except FileNotFoundError:
@@ -42,7 +42,7 @@ def load(file, key):
 
 def counter_up(file, key):
     try:
-        with open(file) as open_file:
+        with open(file, "w") as open_file:
             content = json.load(open_file)
     except FileNotFoundError:
         content = {}
@@ -52,7 +52,6 @@ def counter_up(file, key):
 
     with open(file, "w") as open_file:
         json.dump(content, open_file)
-
 
 
 # def search_for_entry

@@ -22,7 +22,7 @@ def data_from_input(url, yt_object):
     return {
         "title": title,
         "description": description,
-        "publish_date": publish_date,
+        # "publish_date": publish_date,
         "thumbnail": thumbnail,
         "length": length,
         "views": views,
