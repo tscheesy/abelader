@@ -40,18 +40,16 @@ def load(file, key):
     return value
 
 
-def counter_up(file, key):
+def counter_up(file, top_key, key):
     try:
-        with open(file, "w") as open_file:
+        with open(file, "r") as open_file:
             content = json.load(open_file)
     except FileNotFoundError:
         content = {}
 
     # raise counter at specified key by one
-    content[str(key)] += 1
+    content[top_key][str(key)] += 1
 
     with open(file, "w") as open_file:
-        json.dump(content, open_file)
+        json.dump(content, open_file, indent=5)
 
-
-# def search_for_entry

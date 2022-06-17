@@ -6,7 +6,6 @@ def data_from_input(url, yt_object):
     publish_date = yt_object.publish_date
     length = str(yt_object.length)
     views = yt_object.views
-    rating = yt_object.rating
     keywords = yt_object.keywords
     channel = yt_object.channel_id
 
@@ -26,7 +25,6 @@ def data_from_input(url, yt_object):
         "thumbnail": thumbnail,
         "length": length,
         "views": views,
-        "rating": rating,
         "keywords": keywords,
         "channel": channel,
         "url": url,

@@ -13,7 +13,7 @@ def home_sweet_home():
     if request.method == "POST":
         form_input = request.form["youtube_link"]
         try:
-            # pytube prüft mittels "except", ob für den Link ein gültiges youtube-Objekt besteht
+            # pytube prüft, ob für den Link ein gültiges youtube-Objekt besteht
             video = YouTube(form_input)
             video.check_availability()
         except:
@@ -24,25 +24,35 @@ def home_sweet_home():
         video_info = video_data.data_from_input(form_input, video)
 
         # variables for load & save functions from modules
-        entry_title = video_info["title"]
+        entry_title = video_info["id"]
         file = "video_data.json"
 
-        # comparing object to existing entries
+        # comparing object to existing entries, "downloads"-counter + 1 if already exisiting
+        if data.load(file, entry_title):
+            data.counter_up(file, entry_title, "downloads")
 
-        # Saving Video Data in JSON-file
-        # Step 1: Create new dict from ID
-        data.new_dict(file, entry_title)
+        else:
+            # Saving Video Data in JSON-file
+            # Step 1: Create new dict from ID
+            data.new_dict(file, entry_title)
 
-        # Step 2: Save all relevant video_info data in dict
-        for key in video_info:
-            data.save(file, entry_title, key, video_info[key])
+            # Step 2: start downloads-counter at 1
+            data.save(file, entry_title, "downloads", 1)
+
+            # Step 3: Save all relevant video_info data in dict
+            for key in video_info:
+                data.save(file, entry_title, key, video_info[key])
 
         return render_template("questions.html", video_info=video_info)
 
-    # bei Submit questions.html-Formular ELSE
+    # bei Submit questions.html-Formular ELIF
     elif request.method == "GET" and bool(request.args):
         # save form input in json while connecting video ID
         need = request.args["vote_need"]
+
+        file = "vote_data.json"
+        data.new_dict(file, )
+
         return redirect("/download/" + need)
     else:
         return render_template("index.html")
