@@ -9,9 +9,13 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
 def home_sweet_home():
-    # bei Submit Home-Formular IF
+    # bei Submit Home-Formular "POST"
     if request.method == "POST":
         form_input = request.form["youtube_link"]
+
+        # Check, 0b url schon in Datenbank vorhanden, so werden unnötige API-Zugriffe verhindert
+        #
+
         try:
             # pytube prüft, ob für den Link ein gültiges youtube-Objekt besteht
             video = YouTube(form_input)
@@ -29,7 +33,7 @@ def home_sweet_home():
 
         # comparing object to existing entries, "downloads"-counter + 1 if already exisiting
         if data.load(file, entry_title):
-            data.counter_up(file, entry_title, "downloads")
+            data.counter_up(file, entry_title, "times_entered")
 
         else:
             # Saving Video Data in JSON-file
@@ -37,7 +41,7 @@ def home_sweet_home():
             data.new_dict(file, entry_title)
 
             # Step 2: start downloads-counter at 1
-            data.save(file, entry_title, "downloads", 1)
+            data.save(file, entry_title, "times_entered", 1)
 
             # Step 3: Save all relevant video_info data in dict
             for key in video_info:
@@ -45,12 +49,12 @@ def home_sweet_home():
 
         return render_template("questions.html", video_info=video_info)
 
-    # bei Submit questions.html-Formular ELIF
-    elif request.method == "GET" and bool(request.args):
+    # bei Submit questions.html-Formular "GET", nur die drei erlaubten values aus "questions" werden als GET-args akzeptiert
+    elif request.method == "GET" and request.args["vote_need"] == "creator" or request.args["vote_need"] == "fun" or request.args["vote_need"] == "repost":
         # save form input in json while connecting video ID
         need = request.args["vote_need"]
 
-        file = "vote_data.json"
+        file = "counter_data.json"
         data.new_dict(file, )
 
         return redirect("/download/" + need)

@@ -1,0 +1,19 @@
+{
+  "totals" : {
+    "links_entered" : 0,
+    "downloads": 0
+  },
+  "page_views" : {
+    "home": 0,
+    "questions": 0,
+    "download": 0,
+    "thankyou": 0,
+    "about": 0,
+    "stats": 0
+  },
+  "purpose": {
+    "creator": 0,
+    "fun": 0,
+    "repost": 0
+  }
+}
