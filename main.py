@@ -39,7 +39,7 @@ def home_sweet_home():
         file = "video_data.json"
 
         # comparing object to existing entries, "downloads"-counter + 1 if already exisiting
-        if data.load(file, video_id):
+        if data.load_value(file, video_id):
             data.counter_up(file, video_id, "times_entered")
 
         else:
@@ -98,11 +98,8 @@ def show_stats():
     counter_dict = data.load_dict("counter_data.json")
 
     # get purpose dict from counter_dict and sort items by highest value for ranking
-    # dict sorting solution from https://www.delftstack.com/de/howto/python/how-to-sort-a-dictionary-by-value/
-    purpose_sorted = sorted(counter_dict["purpose"].items(), key=operator.itemgetter(1))
-
-    # Rank-Variable to be filled by iteration in jinja
-    rank = 0
+    # dict sorting solution from https://www.delftstack.com/de/howto/python/how-to-sort-a-dictionary-by-value/, reversed
+    purpose_sorted = sorted(counter_dict["purpose"].items(), key=operator.itemgetter(1), reverse=True)
 
     """
     # Plotly Basic Bar Chart to display usage (purpose/need)
@@ -111,7 +108,7 @@ def show_stats():
     fig.show()
     """
 
-    return render_template("stats.html", counters=counter_dict, rank=rank, purpose=purpose_sorted)
+    return render_template("stats.html", counters=counter_dict, purpose=purpose_sorted)
 
 
 @app.route("/about")
