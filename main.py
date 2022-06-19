@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, request, url_for
 from pytube import YouTube
 
+import operator
 import plotly.express as px
 
 import video_data
@@ -65,7 +66,7 @@ def home_sweet_home():
 
             # save form input in counter-json
             need = request.args["vote_need"]
-            data.purpose_counter(need)
+            data.counter_up("counter_data.json", "purpose", need)
 
             return redirect("/download/" + need)
 
@@ -96,6 +97,10 @@ def show_stats():
     # load counter_data json
     counter_dict = data.load_dict("counter_data.json")
 
+    # get purpose dict from counter_dict and sort items by highest value for ranking
+    # dict sorting solution from https://www.delftstack.com/de/howto/python/how-to-sort-a-dictionary-by-value/
+    purpose_sorted = sorted(counter_dict["purpose"].items(), key=operator.itemgetter(1))
+
     # Rank-Variable to be filled by iteration in jinja
     rank = 0
 
@@ -106,7 +111,7 @@ def show_stats():
     fig.show()
     """
 
-    return render_template("stats.html", counters=counter_dict, rank=rank)
+    return render_template("stats.html", counters=counter_dict, rank=rank, purpose=purpose_sorted)
 
 
 @app.route("/about")

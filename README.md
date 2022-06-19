@@ -56,14 +56,16 @@ der App durch reale Nutzer ist die Gestaltung der User Experience und damit
 eine ansprechende, simple und moderne Gestaltung der Bootstrap-Elemente.
 
 
->##### Sources
->- fabod's pro2_demos on GitHub: https://github.com/fabod/pro2_demos
->- YouTube video downloader | Python project | Pytube | Easy Tutorial: https://www.youtube.com/watch?v=7BXJIjfJCsA
->- How to Make Complete Responsive Website Using Bootstrap/HTML/CSS: https://www.youtube.com/watch?v=zhllkjYYUVE
->- Create your own YouTube video downloader with Flask!: https://www.youtube.com/watch?v=KnHCe1jW9ao
->- Usage of Templates in Flask Applications: https://www.digitalocean.com/community/tutorials/how-to-use-templates-in-a-flask-application
+>##### Specific Sources
+- fabod's pro2_demos on GitHub: https://github.com/fabod/pro2_demos
+- YouTube video downloader | Python project | Pytube | Easy Tutorial: https://www.youtube.com/watch?v=7BXJIjfJCsA
+- How to Make Complete Responsive Website Using Bootstrap/HTML/CSS: https://www.youtube.com/watch?v=zhllkjYYUVE
+- Create your own YouTube video downloader with Flask!: https://www.youtube.com/watch?v=KnHCe1jW9ao
+- Usage of Templates in Flask Applications: https://www.digitalocean.com/community/tutorials/how-to-use-templates-in-a-flask-application
+- Wie man ein Python-Dictionary nach Wert sortiert: https://www.delftstack.com/de/howto/python/how-to-sort-a-dictionary-by-value/
+- How to increment a variable on a for loop in jinja template?: https://stackoverflow.com/questions/7537439/how-to-increment-a-variable-on-a-for-loop-in-jinja-template
 
->###### consulted Docs (among others)
+>###### Generally consulted Docs (amongst few others for comparison & comprehension)
 >- www.stackoverflow.com
 >- www.getbootstrap.com
 >- www.w3schools.com

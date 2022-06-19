@@ -58,11 +58,11 @@
                             </thead>
                             <tbody>
 
-                                {% for el in counters["purpose"].sort(reverse=True): %}
+                                {% for el in purpose: %}
                                 <tr>
-                                  <th scope="row">{{ rank + 1 }}</th>
-                                  <td>{{ el }}</td>
-                                  <td>{{ el }}</td>
+                                  <th scope="row">{{ loop.index }}</th>
+                                  <td>{{ el[0] }}</td>
+                                  <td>{{ el[1] }}</td>
                                 </tr>
                                 {% endfor %}
 
