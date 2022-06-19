@@ -101,6 +101,18 @@ def show_stats():
     # dict sorting solution from https://www.delftstack.com/de/howto/python/how-to-sort-a-dictionary-by-value/, reversed
     purpose_sorted = sorted(counter_dict["purpose"].items(), key=operator.itemgetter(1), reverse=True)
 
+    # load video_data json
+    video_dict = data.load_dict("video_data.json")
+
+    # new dict with video titles and entries only, to sort by int size
+    video_dict_entries = {}
+    for vidid, content in video_dict.items():
+        for key, value in content.items():
+            if key == "title":
+                video_dict_entries[value] = content["times_entered"]
+
+    video_dict_entries = sorted(video_dict_entries.items(), key=operator.itemgetter(1), reverse=True)
+
     """
     # Plotly Basic Bar Chart to display usage (purpose/need)
     data_canada = px.data.gapminder().query("country == 'Canada'")
@@ -108,7 +120,19 @@ def show_stats():
     fig.show()
     """
 
-    return render_template("stats.html", counters=counter_dict, purpose=purpose_sorted)
+    barchart_data = {
+        "names": [],
+        "numbers": []
+    }
+
+    for key, value in counter_dict["purpose"].items():
+        barchart_data["names"].append(key)
+        barchart_data["numbers"].append(value)
+
+    fig = px.bar(barchart_data, x='names', y='numbers')
+
+
+    return render_template("stats.html", counters=counter_dict, purpose=purpose_sorted, video_dict_entries=video_dict_entries)
 
 
 @app.route("/about")

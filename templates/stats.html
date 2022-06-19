@@ -45,10 +45,10 @@
                         </ul>
                     </div>
 
-                    <div class="col-md-8">
+                    <div class="col-md-8 py-5">
                         <h4>Top Verwendungszwecke</h4>
 
-                        <table class="table table-hover px-md-3">
+                        <table class="table table-hover px-md-3 mt-md-5">
                             <thead>
                                 <tr>
                                   <th scope="col">Rang</th>
@@ -75,6 +75,27 @@
                 <div class="row mt-5">
                     <div class="col-md-4">
                         <h4>Top Videos</h4>
+                        <table class="table table-hover px-md-3 mt-md-5">
+                            <thead>
+                                <tr>
+                                  <th scope="col">Rang</th>
+                                  <th scope="col">Titel</th>
+                                  <th scope="col">Eingaben</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for el in video_dict_entries: %}
+                                <tr>
+                                    <th scope="row">{{ loop.index }}</th>
+
+                                        <td class="text-start">{{ el[0] }}</td>
+                                        <td>{{ el[1] }}</td>
+
+                                </tr>
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
                     </div>
                     <div class="col-md-4">
                         <h4>Top Keywords</h4>
@@ -86,7 +107,7 @@
 
                 <div class="row">
                     <div class="col-md-6 offset-md-3">
-                        <h4>Top Video</h4>
+                        <h4>All Videos</h4>
                     </div>
                 </div>
 
