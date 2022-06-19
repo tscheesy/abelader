@@ -1,6 +1,7 @@
 <!-- Loading Base HTML Template with Metadata, Bootstrap & Navigation-->
 {% extends "base.html" %}
 
+{% block title %} Verwendungszweck {% endblock %}
 
 <!--------- CONTENT ----------->
 {% block content %}
@@ -15,14 +16,27 @@
                         <p>Youtube-Objekt: {{ video_info["yt_object"] }}</p>
                         <p>ID <a href="{{ video_info['url'] }}" target="_blank">{{ video_info['id'] }}</a></p>
                         {% for el in video_info: %}
-                            <li>{{ el }} : {{ video_info.get(el) }}</li>
+
+                            {% if el == "length": %}
+                            <li class="text-start">{{ el }} : {{ video_info.get(el) }}s</li>
+
+                            {% elif el == "views": %}
+                            <li class="text-start">{{ el }} : {{ video_info.get(el) }}</li>
+
+
+                            {% endif %}
                         {% endfor %}
                     </div>
 
 
                     <div class="col-md-4 text-start">
-                        <p>Beantworte folgende Fragen um fortzufahren:</p>
                         <form>
+                            <!-- Übergabe der video-ID im Formular, um User-Input zuordnen zu können (GET-Problem konnte nicht im Zeitrahmen gelöst werden)
+                            <label for="vidid">Video ID:</label>
+                            <input class="form-control" type="text" id="vidid" name="vidid" value="{{ video_info['id'] }}" aria-label="Video ID" disabled readonly>
+                            -->
+
+                            <p class="mt-5">Beantworte folgende Fragen um fortzufahren:</p>
 
                         <!-- Form Groups Radio Buttons für Fragen -->
                             <div class="form-group row">

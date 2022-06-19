@@ -1,19 +1,19 @@
 {
-  "totals" : {
-    "links_entered" : 0,
-    "downloads": 0
-  },
-  "page_views" : {
-    "home": 0,
-    "questions": 0,
-    "download": 0,
-    "thankyou": 0,
-    "about": 0,
-    "stats": 0
-  },
-  "purpose": {
-    "creator": 0,
-    "fun": 0,
-    "repost": 0
-  }
+     "totals": {
+          "links_entered": 16,
+          "downloads": 2
+     },
+     "page_views": {
+          "home": 25,
+          "questions": 11,
+          "download": 11,
+          "thankyou": 0,
+          "about": 0,
+          "stats": 7
+     },
+     "purpose": [
+          3,
+          4,
+          3
+     ]
 }

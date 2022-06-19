@@ -53,3 +53,85 @@ def counter_up(file, top_key, key):
     with open(file, "w") as open_file:
         json.dump(content, open_file, indent=5)
 
+
+def purpose_counter(purpose):
+
+    # purpose_counter raises the purpose counts in both video_data and counter_data json
+    # first counter_data:
+    try:
+        with open("counter_data.json", "r") as open_file:
+            content = json.load(open_file)
+    except FileNotFoundError:
+        content = {}
+
+    # raise counter at right purpose-list-index in counter_data
+    if purpose == "repost":
+        content["purpose"][0] += 1
+
+    elif purpose == "fun":
+        content["purpose"][1] += 1
+
+    elif purpose == "creator":
+        content["purpose"][2] += 1
+
+    else:
+        return "Invalid download purpose stated"
+
+    with open("counter_data.json", "w") as open_file:
+        json.dump(content, open_file, indent=5)
+
+
+""" 
+
+unsolved problem with GET-Method on questions html, hence below code is not used and input data only stored in counter_data json
+
+def purpose_counter(video_id, purpose):
+
+    # purpose_counter raises the purpose counts in both video_data and counter_data json
+    # first counter_data:
+    try:
+        with open("counter_data.json", "r") as open_file:
+            content = json.load(open_file)
+    except FileNotFoundError:
+        content = {}
+
+    # raise counter at right purpose-list-index in counter_data
+    if purpose == "repost":
+        content["purpose"][0] += 1
+
+    elif purpose == "fun":
+        content["purpose"][1] += 1
+
+    elif purpose == "creator":
+        content["purpose"][2] += 1
+
+    else:
+        return "Invalid download purpose stated"
+
+    with open("counter_data.json", "w") as open_file:
+        json.dump(content, open_file, indent=5)
+
+    # second video_data:
+    try:
+        with open("video_data.json", "r") as open_file:
+            content = json.load(open_file)
+    except FileNotFoundError:
+        content = {}
+
+    # raise counter at right purpose-list-index in video_data
+    if purpose == "repost":
+        content[video_id]["purpose"][0] += 1
+
+    elif purpose == "fun":
+        content[video_id]["purpose"][1] += 1
+
+    elif purpose == "creator":
+        content[video_id]["purpose"][2] += 1
+
+    else:
+        return "Invalid download purpose stated"
+
+    with open("video_data.json", "w") as open_file:
+        json.dump(content, open_file, indent=10)
+        
+"""
