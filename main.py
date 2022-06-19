@@ -3,6 +3,7 @@ from pytube import YouTube
 
 import operator
 import plotly.express as px
+from plotly.offline import plot
 
 import video_data
 import data
@@ -113,26 +114,45 @@ def show_stats():
 
     video_dict_entries = sorted(video_dict_entries.items(), key=operator.itemgetter(1), reverse=True)
 
-    """
     # Plotly Basic Bar Chart to display usage (purpose/need)
-    data_canada = px.data.gapminder().query("country == 'Canada'")
-    fig = px.bar(data_canada, x='year', y='pop')
-    fig.show()
-    """
-
+    # Step 1: open new lists for dictionary data, one for keys & one for values
     barchart_data = {
         "names": [],
         "numbers": []
     }
 
+    # Step 2: Iterate through counter_dict -> purpose and append items to lists
     for key, value in counter_dict["purpose"].items():
         barchart_data["names"].append(key)
         barchart_data["numbers"].append(value)
 
-    fig = px.bar(barchart_data, x='names', y='numbers')
+    # Step 3: Fill Plotly Barchart function with lists on axys, label for comprehension of the reader
+    fig = px.bar(barchart_data, x="names", y="numbers",
+                 labels={"names": "Verwendungszweck", "numbers": "Anzahl Eingaben"})
 
+    # Step 4: Plot Chart in div-Variable, which will be called in Jinja
+    div = plot(fig, output_type="div")
 
-    return render_template("stats.html", counters=counter_dict, purpose=purpose_sorted, video_dict_entries=video_dict_entries)
+    # Keyword-Analysis
+    # Step 1: open new dict
+    keywords = {}
+
+    # Step 2: Iterate through video_dict keywords, add to dict and raise counters
+    for vidid, content in video_dict.items():
+        for key, value in content.items():
+            if key == "keywords":
+                for item in value:
+                    # if key exists, counter+1, if not: counter=1
+                    item = item.lower()
+                    if item in keywords.keys():
+                        keywords[item] += 1
+                    else:
+                        keywords[item] = 1
+
+    # order dict by counter values
+    keywords = sorted(keywords.items(), key=operator.itemgetter(1), reverse=True)
+
+    return render_template("stats.html", counters=counter_dict, purpose=purpose_sorted, video_dict_entries=video_dict_entries, plotly_div=div, keywords=keywords)
 
 
 @app.route("/about")

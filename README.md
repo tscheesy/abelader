@@ -1,13 +1,10 @@
 
-    ![abelader, the youtube video mp4 and mp3 downloader](/static/logo.png/)
-
-> Social Media für Möchtegern-Influencer
+> ABELADER, your trusted Youtube to mp4 and mp3-download tool
 
 ## Warum "Abelader"?
 
 - Heutige Content Creator in Form von Privatpersonen, Lifestyle-Accounts oder auch Unternehmen 
-brauchen Content, um damit ihre Identität auszudrücken. Viel Content. Und Youtube ist das Google 
-der Videos (zufall???).
+brauchen Content, um damit ihre Identität auszudrücken. Viel Content. Und Youtube ist Google. Mit Videos.
 - Es gibt keine vernünftigen webbasierten Alternativen (Vertrauenswürdigkeit & Funktionalität),
 Die ich über Google finden kann
 - Die Rechtslage bei Wiederverwendung von Content gemäss aktueller Bestimmungen in der Schweiz & EU ist noch abzuschätzen.
@@ -15,45 +12,40 @@ Die ich über Google finden kann
 ## Benutzung
 
 - URL Einfügen - Submit
-- Fragen beantworten
-- Download als mp4 oder mp3 wählen, gewünschte Auflösung wählen
+- Frage beantworten
+- Download-Button Klicken (nicht funktional)
+
+Für Datenabruf: "stats" in der Navigation aufrufen
 
 ### Pytube
 
+Dieses Projekt basiert auf der vereinfachten Youtube API-Schnittstelle, die von pytube kostenlos zur Verfügung gestellt wird
 
-## Funktionen
+## Weitere Pakete
+- flask
+- operator
+- plotly (express & offline)
+- json
+- pandas
 
-*Primär (User Gain)*
-- Lädt Video auf Server
-- Button für Download durch User
-- Timer mit Löschung des geladenen Videos
+## Funktionen (eingeschränkt)
 
-*Sekundär (Owner Gain)*
-- speichert alle eingegebenen URLs
-- Zusätzliche Informationen zum Verwendungszweck und Benutzer werden mit Download gesammelt
-- Kategorisiert Videos in Datenbank
-- Zeigt Content-Trends auf
+- Validierung von Links als Youtube-Videos
+- abrufen von Youtube-Metadaten zum Video
+- Speichern der Metadaten in persistentem JSON-File
+- Verwendungszweck separat speichern
+- Page View Zähler auf jeder URL
+- Abrufen & Priorisieren der gespeicherten Daten in Listen oder Tabellen
+- Visuelle Darstellung von Daten mit Plotly
+- Keyword-Analyse
+
+## Ungelöste Probleme
+- Der effektive Download von Youtube-Videos wurde nicht behandelt
+- Die Zusammenführung der Input-Daten auf verschiedenen Seiten
 
 ## Architektur
 
-####Home & Handling false Input
-- Input auf Funktion (Youtube-Link) prüfen ohne nächste url zu laden (Fragen!)
-- Lösung: neues Template rendern
-
-####Questioning
-
-####Datenbank
-
-####Rechnung & Filter
-
-####Datenausgabe
-
-
-### Visual
-
-Nicht als Funktion definierbar aber dennoch existenziell wichtig für die Nutzung 
-der App durch reale Nutzer ist die Gestaltung der User Experience und damit 
-eine ansprechende, simple und moderne Gestaltung der Bootstrap-Elemente.
+Die Architektur des Programms ist mit vielen, ausführlichen Kommentaren im Code selbst beschrieben
 
 
 >##### Specific Sources

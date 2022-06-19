@@ -45,35 +45,15 @@
                         </ul>
                     </div>
 
-                    <div class="col-md-8 py-5">
+                    <div class="col-md-8">
                         <h4>Top Verwendungszwecke</h4>
-
-                        <table class="table table-hover px-md-3 mt-md-5">
-                            <thead>
-                                <tr>
-                                  <th scope="col">Rang</th>
-                                  <th scope="col">Zweck</th>
-                                  <th scope="col">Anzahl</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                                {% for el in purpose: %}
-                                <tr>
-                                  <th scope="row">{{ loop.index }}</th>
-                                  <td>{{ el[0] }}</td>
-                                  <td>{{ el[1] }}</td>
-                                </tr>
-                                {% endfor %}
-
-                            </tbody>
-                        </table>
+                        {{ plotly_div|safe }}
 
                     </div>
                 </div>
 
-                <div class="row mt-5">
-                    <div class="col-md-4">
+                <div class="row mt-3">
+                    <div class="col-md-6">
                         <h4>Top Videos</h4>
                         <table class="table table-hover px-md-3 mt-md-5">
                             <thead>
@@ -84,7 +64,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for el in video_dict_entries: %}
+                                {% for el in video_dict_entries[0:5]: %}
                                 <tr>
                                     <th scope="row">{{ loop.index }}</th>
 
@@ -97,17 +77,29 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <h4>Top Keywords</h4>
-                    </div>
-                    <div class="col-md-4">
-                        <h4>Top Views</h4>
-                    </div>
-                </div>
+                        <table class="table table-hover px-md-3 mt-md-5">
+                            <thead>
+                                <tr>
+                                  <th scope="col">Rang</th>
+                                  <th scope="col">Keyword</th>
+                                  <th scope="col">Anzahl Videos</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for el in keywords[0:10]: %}
+                                <tr>
+                                    <th scope="row">{{ loop.index }}</th>
 
-                <div class="row">
-                    <div class="col-md-6 offset-md-3">
-                        <h4>All Videos</h4>
+                                        <td class="text-start">{{ el[0] }}</td>
+                                        <td>{{ el[1] }}</td>
+
+                                </tr>
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
