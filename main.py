@@ -93,12 +93,20 @@ def form_receiver(need):
 def show_stats():
     data.counter_up("counter_data.json", "page_views", "stats")
 
+    # load counter_data json
+    counter_dict = data.load_dict("counter_data.json")
+
+    # Rank-Variable to be filled by iteration in jinja
+    rank = 0
+
+    """
     # Plotly Basic Bar Chart to display usage (purpose/need)
     data_canada = px.data.gapminder().query("country == 'Canada'")
     fig = px.bar(data_canada, x='year', y='pop')
     fig.show()
+    """
 
-    return render_template("stats.html")
+    return render_template("stats.html", counters=counter_dict, rank=rank)
 
 
 @app.route("/about")
